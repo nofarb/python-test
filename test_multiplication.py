@@ -13,13 +13,13 @@ def test_long_running_one():
 def test_multiplication():
     calc = Calculator()
     result = calc.multiply(3, 4)
-    time.sleep(16)  
+    time.sleep(1)  
     assert result == 12
 
 def test_multiplicationFlaky():
     calc = Calculator()
     result = calc.multiply(2, 7)
-    time.sleep(7)  
+    time.sleep(1)  
 
     # Introduce flakiness/random errors
     #if random.choice([True, False]):
