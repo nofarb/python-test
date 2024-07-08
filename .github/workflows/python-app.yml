@@ -44,7 +44,7 @@ jobs:
     - name: add datadog tags
       run: |
         export DD_API_KEY=${{ secrets.DD_API_KEY }}
-        export DD_SITE=datadoghq.com
+        export DD_SITE=$DD_SITE
         export DD_ENV=ci
         export DD_SERVICE=my-python-app
         export DD_TAGS=team:ci
@@ -66,7 +66,7 @@ jobs:
         dd_app_key: ${{ secrets.DD_APP_KEY }}
         dd_service: my-python-app
         dd_env: ci
-        dd_site: us5.datadoghq.com
+        dd_site: $DD_SITE
         cpu_count: 2  
 
 
