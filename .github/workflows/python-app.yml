@@ -63,7 +63,7 @@ jobs:
         dd_app_key: ${{ secrets.DD_APP_KEY }}
         dd_service: my-python-app
         dd_env: ci
-        dd_site: us5.datadoghq.com
+        dd_site: datadoghq.com
         cpu_count: 2  
 
 
@@ -81,7 +81,8 @@ jobs:
         dd_app_key: ${{ secrets.DD_APP_KEY }}
         dd_service: my-python-app
         dd_env: ci
-        dd_site: us5.datadoghq.com
+        dd_site: datadoghq.com
+
 
   deploy-qa:
     runs-on: 'ubuntu-latest'
