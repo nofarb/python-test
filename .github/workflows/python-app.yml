@@ -84,7 +84,7 @@ jobs:
         dd_app_key: ${{ secrets.DD_APP_KEY }}
         dd_service: my-python-app
         dd_env: ci
-        dd_site: us5.datadoghq.com
+        dd_site: $DD_SITE
 
   deploy-qa:
     runs-on: 'ubuntu-latest'
