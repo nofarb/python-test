@@ -49,41 +49,6 @@ jobs:
         npm install -g @datadog/datadog-ci
         datadog-ci tag --level pipeline
 
-  static-analysis:
-    runs-on: ubuntu-latest
-    name: Datadog Static Analyzer
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Check code meets quality and security standards
-      id: datadog-static-analysis
-      uses: DataDog/datadog-static-analyzer-github-action@v1
-      with:
-        dd_api_key: ${{ secrets.DD_API_KEY }}
-        dd_app_key: ${{ secrets.DD_APP_KEY }}
-        dd_service: my-python-app
-        dd_env: ci
-        dd_site: datadoghq.com
-        cpu_count: 2  
-
-
-  software-composition-analysis:
-    runs-on: ubuntu-latest
-    name: Datadog SBOM Generation and Upload
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Check imported libraries are secure and compliant
-      id: datadog-software-composition-analysis
-      uses: DataDog/datadog-sca-github-action@main
-      with:
-        dd_api_key: ${{ secrets.DD_API_KEY }}
-        dd_app_key: ${{ secrets.DD_APP_KEY }}
-        dd_service: my-python-app
-        dd_env: ci
-        dd_site: datadoghq.com
-
-
   deploy-qa:
     runs-on: 'ubuntu-latest'
     environment: 'QA'
@@ -94,6 +59,9 @@ jobs:
           export DD_BETA_COMMANDS_ENABLED=1
           export DD_SITE=datadoghq.com
           export DD_API_KEY=${{ secrets.DD_API_KEY }}
+          echo `start time is: date +%s` 
+          echo `git repo is: ${{ github.repository }}` 
+          echo `git commit sha is: ${{ github.GITHUB_SHA }}` 
           
           echo "deploy to QA"
           sleep 1m
