@@ -55,18 +55,19 @@ jobs:
     steps:
       - name: deploy to QA
         run: |
+          echo `start time is: date +%s` 
+          echo `git repo is: ${{ github.repository }}` 
+          echo `git commit sha is: ${{ github.GITHUB_SHA }}
+          
           export deploy_start=`date +%s`
           export DD_BETA_COMMANDS_ENABLED=1
           export DD_SITE=datadoghq.com
           export DD_API_KEY=${{ secrets.DD_API_KEY }}
-          echo `start time is: date +%s` 
-          echo `git repo is: ${{ github.repository }}` 
-          echo `git commit sha is: ${{ github.GITHUB_SHA }}` 
           
           echo "deploy to QA"
           sleep 1m
 
-          datadog-ci dora deployment --service myPythonService --env qa \
+          datadog-ci dora deployment --service myPythonService --env QA \
               --started-at $deploy_start --finished-at `date +%s` \
               --git-repository-url ${{ github.repository }} \
               --git-commit-sha ${{ github.GITHUB_SHA }}
