@@ -39,6 +39,9 @@ jobs:
         export DD_SERVICE=my-python-app
         pytest --ddtrace --cov=. --cov-report=xml
 
+    
+    - name: Install datadog-ci
+      run: npm install -g @datadog/datadog-ci
 
     - name: Evaluate Datadog Quality Gates
       run: datadog-ci coverage upload --service my-python-app --env ci --tags team:ci coverage.xml
