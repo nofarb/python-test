@@ -6,7 +6,7 @@ name: only tests - Python
 
 on:
   push:
-    branches: [ "main" ] 
+    branches: [ "main", "nofar-patch-16" ] 
   pull_request:
     branches: [ "main" ]
 
