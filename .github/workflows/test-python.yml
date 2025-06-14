@@ -6,7 +6,9 @@ name: only tests - Python
 
 on:
   push:
-    branches: [ "main" ] 
+    branches: 
+       - "nofar*"
+       - "main"
   pull_request:
     branches: [ "main" ]
 
