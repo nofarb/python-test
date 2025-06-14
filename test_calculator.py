@@ -7,6 +7,11 @@ def test_add():
     calc = Calculator()
     time.sleep(1)  
     assert calc.add(2, 4) == 6
+
+def test_add2(): 
+    calc = Calculator()
+    time.sleep(1)  
+    assert calc.add(3, 4) == 7
     
 def test_long_running_one():
     # Simulating a long process
