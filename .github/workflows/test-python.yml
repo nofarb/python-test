@@ -29,6 +29,7 @@ jobs:
         pip install coverage
         pip install pytest-cov
         pip install -U ddtrace
+        pip install pytest pytest-cov
 
     - name: Test with pytest and generate coverage
       run: |
@@ -38,6 +39,13 @@ jobs:
         export DD_ENV=ci
         export DD_SERVICE=my-python-app
         pytest --ddtrace --cov=. --cov-report=xml
+        pytest --cov --cov-branch --cov-report=xml
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v5
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: nofarb/python-test
 
     
     - name: Install datadog-ci
