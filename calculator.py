@@ -23,6 +23,12 @@ class Calculator:
         return a / b
 
     @staticmethod
+    def divide2(a, c):
+        if c == 0:
+            raise ValueError("Cannot divide by zero.")
+        return a / c
+        
+    @staticmethod
     def power(a, b):
         return a ** b
 
