@@ -27,6 +27,10 @@ class Calculator:
         return a ** b
 
     @staticmethod
+    def multiplyByTwo(a):
+        return a * 2
+
+    @staticmethod
     def modulo(a, b):
         if b == 0:
             raise ValueError("Cannot perform modulo by zero.")
